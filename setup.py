@@ -626,11 +626,16 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
+
+python_requires = environ.get("ORT_PYTHON_REQUIRES", ">=3.10")
 
 if enable_training or enable_training_apis:
     packages.append("onnxruntime.training")
@@ -874,7 +879,7 @@ setup(
     data_files=data_files,
     install_requires=install_requires,
     extras_require=extras_require,
-    python_requires=">=3.10",
+    python_requires=python_requires,
     keywords="onnx machine learning",
     entry_points={
         "console_scripts": [
