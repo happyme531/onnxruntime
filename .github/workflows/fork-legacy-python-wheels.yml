@@ -23,7 +23,11 @@ jobs:
 
       - name: Build manylinux image
         run: |
-          docker build -f tools/ci_build/github/linux/docker/Dockerfile.manylinux2_28_cpu -t ort-manylinux-cpu:local .
+          docker build \
+            --build-arg BASEIMAGE=quay.io/pypa/manylinux_2_28_x86_64 \
+            -f tools/ci_build/github/linux/docker/Dockerfile.manylinux2_28_cpu \
+            -t ort-manylinux-cpu:local \
+            .
 
       - name: Build wheel for ${{ matrix.python_abi }}
         env:

@@ -6,6 +6,8 @@ This repository includes a workflow at `.github/workflows/fork-legacy-python-whe
 - `cp39-cp39` (Python 3.9)
 - `cp310-cp310` (Python 3.10)
 
+Note: the workflow overrides the Docker base image to public `quay.io/pypa/manylinux_2_28_x86_64`, so it works in forks without Microsoft-internal registry access.
+
 ## Run manually
 
 1. Open **Actions** in your fork.
